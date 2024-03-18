@@ -29,7 +29,7 @@ pipeline{
                             sh "terraform plan"
                             break
                         case 'apply':
-                            sh 'terraform apply -auto-approve tfplan'
+                            sh 'terraform apply -auto-approve'
                             break
                         case 'destroy':
                             sh "terraform destroy -auto-approve"
