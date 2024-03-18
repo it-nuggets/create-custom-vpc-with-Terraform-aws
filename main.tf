@@ -30,7 +30,7 @@ resource "aws_subnet" "public_subnet_2" {
 
 resource "aws_subnet" "private_subnet_1" {
   vpc_id = aws_vpc.it-nuggets-vpc.id
-  cidr_block = "10.0.4.0/24"
+  cidr_block = "10.0.3.0/24"
   map_public_ip_on_launch = "true"
   availability_zone = var.ZONE1
   tags = {
@@ -60,7 +60,7 @@ resource "aws_route_table" "public_RT" {
   vpc_id = aws_vpc.it-nuggets-vpc.id
 
 
-  route = {
+  route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.IGW.id
   }
