@@ -45,7 +45,7 @@ resource "aws_subnet" "private_subnet_2" {
   map_public_ip_on_launch = "true"
   availability_zone = var.ZONE2
   tags = {
-    Name = "private_subnet_2"
+    Name = "it_nuggets_private_subnet_2"
   }
 }
 
@@ -57,7 +57,7 @@ resource "aws_internet_gateway" "IGW" {
 }
 
 resource "aws_route_table" "public_RT" {
-  vpc_id = aws_vpc.my_vpc.id
+  vpc_id = aws_vpc.it-nuggets-vpc.id
 
 
   route = {
@@ -70,13 +70,13 @@ resource "aws_route_table" "public_RT" {
 }
 
 
-resource "aws_route_table_association" "public_subnet_1a" {
-  subnet_id = aws_subnet.public_subnet_1.id
-  route_table_id = aws_route_table.public_RT.id
+resource "aws_route_table_association" "public_subnet_1" {
+    subnet_id = aws_subnet.public_subnet_1.id
+    route_table_id = aws_route_table.public_RT.id
+  
 }
 
-
-resource "aws_route_table_association" "public_subnet_2b" {
+resource "aws_route_table_association" "it_nuggets_private_subnet_2" {
   subnet_id = aws_subnet.public_subnet_2.id
   route_table_id = aws_route_table.public_RT.id
 }
